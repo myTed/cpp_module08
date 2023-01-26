@@ -9,9 +9,10 @@ int	main(void)
 	try
 	{
 		sp.addNumber(6);
+		sp.addNumber(0);
+		sp.addNumber(-2);
 		sp.addNumber(2);
-		sp.addNumber(-1);
-		sp.addNumber(2);
+		sp.addNumber(3);
 		Span sp2(sp);
 		Span sp3(5);
 

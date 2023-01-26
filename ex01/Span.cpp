@@ -67,18 +67,17 @@ int	Span::shortestSpan()
 	if (length == 1)
 		throw OnlyOneFoundException();
 	
-	size_t	shortestDist = abs(_v[0] - _v[1]);
-	size_t	curDist;
-	size_t	j;
+	std::vector<int> tmp(_v);
+	sort(tmp.begin(), tmp.end());
 
-	for (size_t idx = 0; idx < length - 1; idx++)
+	size_t	shortestDist = abs(tmp[0] - tmp[1]);
+	size_t	curDist;
+
+	for(size_t idx = 0; idx < length - 1; idx++)
 	{
-		for (j = idx; j < length - 1; j++)
-		{
-			curDist = abs(_v[idx] - _v[j + 1]);
-			if (curDist < shortestDist)
-				shortestDist = curDist;
-		}
+		curDist = abs(tmp[idx] - tmp[idx + 1]);
+		if (curDist < shortestDist)
+			shortestDist = curDist;
 	}
 	return (shortestDist);
 }
@@ -92,20 +91,9 @@ int	Span::longestSpan()
 	if (length == 1)
 		throw OnlyOneFoundException();
 	
-	size_t	longestDist = abs(_v[0] - _v[1]);
-	size_t	curDist;
-	size_t	j;
-
-	for (size_t idx = 0; idx < length - 1; idx++)
-	{
-		for (j = idx; j < length - 1; j++)
-		{
-			curDist = abs(_v[idx] - _v[j + 1]);
-			if (curDist > longestDist)
-				longestDist = curDist;
-		}
-	}
-	return (longestDist);
+	std::vector<int> tmp(_v);
+	sort(tmp.begin(), tmp.end());
+	return (abs(tmp[0] - tmp[length - 1]));
 }
 
 const char* Span::NotFoundException::what() const throw()
