@@ -8,8 +8,8 @@
 template<typename T>
 void	easyfind(T& r, int n)
 {
-	typename T::iterator iter;
-	
+	typename T::const_iterator iter;
+
 	iter = std::find(r.begin(), r.end(), n);
 	if (iter == r.end())
 	{

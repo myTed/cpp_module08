@@ -25,6 +25,13 @@ int	main()
 
 	try
 	{	
+		const std::vector<int> v2(v);
+		std::for_each(v2.begin(), v2.end(), show);
+		std::cout << std::endl;
+		easyfind(v2, 1);
+		std::cout << "1 is Found!\n";
+
+
 		easyfind(v, 1);
 		std::cout << "1 is Found!\n";
 

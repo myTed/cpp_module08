@@ -42,7 +42,7 @@ void	Span::addNumber(int n)
 {
 	try
 	{
-		if (_curCnt == _maxSize)
+		if (_curCnt >= _maxSize)
 			throw FullStoreException();
 		_v.push_back(n);
 		_curCnt++;
@@ -56,6 +56,13 @@ void	Span::addNumber(int n)
 	{
 		throw;
 	}
+}
+
+void	Span::showSpan()
+{
+	for(size_t idx = 0; idx < _curCnt; idx++)
+		std::cout << _v[idx] << " ";
+	std::cout << std::endl;
 }
 
 int	Span::shortestSpan()
